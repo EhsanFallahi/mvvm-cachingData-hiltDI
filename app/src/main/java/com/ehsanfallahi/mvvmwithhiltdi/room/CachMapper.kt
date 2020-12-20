@@ -1,12 +1,11 @@
-package com.ehsanfallahi.mvvmwithhiltdi.network
+package com.ehsanfallahi.mvvmwithhiltdi.room
 
 import com.ehsanfallahi.mvvmwithhiltdi.mapper.EntityMapper
 import com.ehsanfallahi.mvvmwithhiltdi.model.Blog
+import com.ehsanfallahi.mvvmwithhiltdi.network.BlogNetworkEntity
 
-//for mapping a network object to blog object
-class NetworkMapper
-//@Inject
-constructor():EntityMapper<BlogNetworkEntity,Blog>
+class CachMapper
+constructor():EntityMapper<BlogNetworkEntity, Blog>
 {
     override fun mapFromEntity(entity: BlogNetworkEntity): Blog {
         return Blog(
@@ -27,7 +26,6 @@ constructor():EntityMapper<BlogNetworkEntity,Blog>
             category = domainModel.category
         )
     }
-
      fun mapFromEntityList(entities:List<BlogNetworkEntity>):List<Blog>{
         return entities.map { mapFromEntity(it) }
     }
